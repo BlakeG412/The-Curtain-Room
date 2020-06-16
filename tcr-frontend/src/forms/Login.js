@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
 import { Link, useHistory } from 'react-router-dom'
-// import SignUp from './SignUp'
-// import Home from '../components/Home'
-
   
 export default function Login(props) {
 
@@ -33,23 +30,7 @@ export default function Login(props) {
             let { success, id } = response
             if(success){
                 history.push(`/home`)
-        }
-        //     let { success, id, token } = userInfo
-        //     if(success){
-        //         localStorage.setItem('token', token)
-        //         props.history.push(`/users/${id}`)
-            // localStorage.setItem("token", userInfo.token)
-            // console.log(userInfo.token)
-            // if(localStorage.token === userInfo.token){
-            // localStorage.setItem("currentUserUsername", userInfo.user.username)                   
-            // localStorage.setItem("currentUserId", userInfo.user.id) 
-            // }
-            // if(localStorage.token === userInfo.token){
-            //     props.checkToken()
-            //     props.history.history.push('/home')
-            // }else{
-            //     alert('Password or email is invalided')
-            // }
+            }
         })  
     }
 
