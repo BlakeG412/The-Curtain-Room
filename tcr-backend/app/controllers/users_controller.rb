@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # before_action :define_current_user
+    before_action :define_current_user
 
     def index
         users = User.all 
@@ -9,16 +9,6 @@ class UsersController < ApplicationController
     def show
         render json: current_user
     end
-
-    # def create
-    #     user = User.new(user_params)
-    #     if user.valid?
-    #         user.save
-    #         render json: {user: User.new(user)}, status: :created
-    #     else
-    #         render json: {message: 'Please complete the Sign Up form'}, status: :not_acceptable
-    #     end
-    # end
 
     def create
         # user = User.create(user_params)
@@ -46,15 +36,15 @@ class UsersController < ApplicationController
         params.require(:user).permit(:firstname, :lastname, :age, :username, :password)
     end
 
-    # def define_current_user
-    #     if params[:id]
-    #         @current_user = User.find(params[:id])
-    #     else
-    #         @current_user = User.new
-    #     end
-    # end
+    def define_current_user
+        if params[:id]
+            @current_user = User.find(params[:id])
+        else
+            @current_user = User.new
+        end
+    end
     
-    # def current_user
-    #     @current_user
-    # end
+    def current_user
+        @current_user
+    end
 end

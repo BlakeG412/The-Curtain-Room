@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import Login from './forms/Login';
-import SignUp from './forms/SignUp';
-import UserShow from './components/UserShow'
-import Home from './components/Home';
-// import NavBar from './components/NavBar'
+import React, {useState, useEffect} from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Login from './forms/Login'
+import SignUp from './forms/SignUp'
+import UserShow from './components/UserShow'
+import Home from './components/Home'
 import DoctorList from './containers/DoctorList'
 import DoctorShow from './components/DoctorShow'
 import DoctorCard from './components/DoctorCard'
 import PracticeList from './containers/PracticeList'
+import NewDoctorForm from './forms/NewDoctorForm'
 
 function App() {
 
@@ -26,10 +26,9 @@ function App() {
         })
         .then(res => res.json())
         .then(doctors => {
-            console.log(doctors)
             setDoctors(doctors)
         })
-    })
+    }, [])
 
     return (
     <div>
@@ -44,6 +43,7 @@ function App() {
                     <Route exact path="/doctor/:id" component={() => <DoctorShow doctors={doctors}/>} />
                     <Route exact path="/doctorCard/:id" component={() => <DoctorCard doctors={doctors}/>} />
                     <Route exact path="/practices" component={PracticeList} />
+                    <Route exact path="/doctors/new" component={NewDoctorForm} />
                 </Switch>
       </BrowserRouter>
     </div>

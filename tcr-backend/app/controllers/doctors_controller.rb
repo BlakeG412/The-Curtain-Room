@@ -1,7 +1,7 @@
 class DoctorsController < ApplicationController
     def index
         doctors = Doctor.all
-        render json: doctors, except: [:created_at, :updated_at]
+        render json: doctors, include: [:office, :practice]
     end
 
     def show
