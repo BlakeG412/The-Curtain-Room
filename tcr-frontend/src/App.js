@@ -6,13 +6,16 @@ import UserShow from './components/UserShow'
 import Home from './components/Home'
 import DoctorList from './containers/DoctorList'
 import DoctorShow from './components/DoctorShow'
-import DoctorCard from './components/DoctorCard'
+// import DoctorCard from './components/DoctorCard'
 import PracticeList from './containers/PracticeList'
 import NewDoctorForm from './forms/NewDoctorForm'
+import NewReviewForm from './forms/NewReviewForm'
+import ReviewList from './containers/ReviewList'
+import ReviewShow from './components/ReviewShow'
 
 function App() {
 
-  const [doctors, setDoctors] = useState([])
+    const [doctors, setDoctors] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:3000/doctors', {
@@ -40,10 +43,13 @@ function App() {
                     <Route exact path= "/home" component={Home} />
                     <Route exact path="/users/:id" component={UserShow} />
                     <Route exact path="/doctors" component={() => <DoctorList doctors={doctors}/>} />
-                    <Route exact path="/doctor/:id" component={() => <DoctorShow doctors={doctors}/>} />
-                    <Route exact path="/doctorCard/:id" component={() => <DoctorCard doctors={doctors}/>} />
-                    <Route exact path="/practices" component={PracticeList} />
+                    <Route exact path="/doctors/:id" component={() => <DoctorShow doctors={doctors}/>} />
+                    {/* <Route exact path="/doctorCard/:id" component={() => <DoctorCard doctors={doctors}/>} /> */}
                     <Route exact path="/doctors/new" component={NewDoctorForm} />
+                    <Route exact path="/practices" component={PracticeList} />
+                    <Route exact path="/reviews" component={ReviewList} />
+                    <Route exact path="/reviews/:id" component={ReviewShow} />
+                    <Route exact path="/reviews/new" component={NewReviewForm} />
                 </Switch>
       </BrowserRouter>
     </div>

@@ -3,17 +3,12 @@ import PracticeCard from '../components/PracticeCard'
 
 export default function PracticeList() {
 
-    const [practices, setPractices] = useState([])
+    let [practices, setPractices] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:3000/practices', {
             method: 'GET',
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify()
+            credentials: 'include'
         })
         .then(res => res.json())
         .then(practices => {
@@ -23,7 +18,10 @@ export default function PracticeList() {
 
     return(
         <div>
-            {practices.map(practice => <PracticeCard />)}
+            <label>All Practices:</label>
+            <div>
+                {practices.map((practice) => <PracticeCard practice={practice} key={practice.id} />)}
+            </div>
         </div>
     )
 }

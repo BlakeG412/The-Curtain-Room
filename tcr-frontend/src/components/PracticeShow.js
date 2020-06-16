@@ -1,8 +1,6 @@
 import React from 'react'
 
-export default function PracticeCard(props) {
-
-    
+export default function PracticeShow() {
 
     return(
         <div>

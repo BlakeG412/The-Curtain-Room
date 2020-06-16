@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   default_url_options :host => 'localhost:3000'
   resources :likes
   resources :practices
-  resources :offices
   resources :reviews
   resources :users
   resources :doctors

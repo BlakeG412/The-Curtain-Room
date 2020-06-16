@@ -4,7 +4,10 @@ class CreateDoctors < ActiveRecord::Migration[6.0]
       t.string :firstname
       t.string :lastname
       t.integer :phone_number
-      t.belongs_to :office
+      t.string :street_address
+      t.string :city
+      t.string :state
+      t.integer :zip_code
       t.belongs_to :practice
       t.timestamps
     end
