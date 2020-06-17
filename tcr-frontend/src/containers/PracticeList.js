@@ -1,29 +1,31 @@
 import React, {useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import PracticeCard from '../components/PracticeCard'
 
 export default function PracticeList() {
 
-    const [practices, setPractices] = useState([])
+    const history = useHistory()
+
+    let [practices, setPractices] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:3000/practices', {
             method: 'GET',
-            credentials: 'include',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify()
+            credentials: 'include'
         })
         .then(res => res.json())
         .then(practices => {
             setPractices(practices)
         })
-    })
+    }, [])
 
     return(
         <div>
-            {practices.map(practice => <PracticeCard />)}
+            <label>All Practices:</label>
+            <div>
+                {practices.map((practice) => <PracticeCard practice={practice} key={practice.id} />)}
+            </div>
+            <button onClick={() => history.push('/home')}>Home</button>
         </div>
     )
 }

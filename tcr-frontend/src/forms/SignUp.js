@@ -5,7 +5,7 @@ import {Link, useHistory} from 'react-router-dom'
   
 export default function SignUp(props) {
 
-    const [ user, changeUser ] = useState({
+    let [ user, changeUser ] = useState({
         firstname: '',
         lastname: '',
         age: '',

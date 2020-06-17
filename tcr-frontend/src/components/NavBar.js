@@ -9,7 +9,7 @@ export default function NavBar(props){
     
     return(
         <div className="ui inverted red menu">
-            <a className="item" href={"/"}>
+            <a className="item" href={"/home"}>
             <h2 className="ui header">
             <div className="content">The Curtain Room</div>
             </h2>
@@ -24,14 +24,14 @@ export default function NavBar(props){
             <div className="item">
             <h2 className="ui header">
                 <div className="content">
-                    <Link to="/review/create" style={{color: "black"}}>New Review</Link>
+                    <Link to="/practices" style={{color: "black"}}>Practices</Link>
                 </div>
             </h2>
             </div>
             <div className="item">
                 <h2 className="ui header">
                     <div className="content">
-                        <Link to="/user/id" style={{color: "black"}}>Profile</Link>
+                        <Link to="/user/:id" style={{color: "black"}}>Profile</Link>
                     </div>
                 </h2>
             </div>

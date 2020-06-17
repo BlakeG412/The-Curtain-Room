@@ -3,7 +3,7 @@ class LikesController < ApplicationController
         like = Like.new(like_params)
         if like.valid?
             like.save
-            render json: like, except: [:created_at, :updated_at]
+            render json: like
         else
             # 
         end

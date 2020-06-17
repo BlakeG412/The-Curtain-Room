@@ -1,10 +1,13 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import NavBar from './NavBar'
+import ReviewList from '../containers/ReviewList'
 
-export default function Home(props){
+export default function Home(){
     
     return(
         <div>
+            <NavBar />
+            <ReviewList />
 
         </div>
     )

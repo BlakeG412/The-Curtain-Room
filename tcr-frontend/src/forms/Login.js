@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
   
 export default function Login(props) {
 
-    const [ user, changeUser ] = useState({
+    let [ user, changeUser ] = useState({
         username: '',
         password: ''
     })

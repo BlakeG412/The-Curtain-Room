@@ -1,13 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import DoctorCard from '../components/DoctorCard'
 
+export default function DoctorList() {
 
-export default function DoctorList(props) {
+    const history = useHistory()
+
+    let [doctors, setDoctors] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:3000/doctors', {
+            method: 'GET',
+            credentials: 'include',
+        })
+        .then(res => res.json())
+        .then(doctors => {
+            setDoctors(doctors)
+        })
+    }, [])
 
     return(
         <div>
             <label>All Doctors</label>
-            <div>{props.doctors.map((doctor) => <DoctorCard doctor={doctor}/>)}</div>
+            <div>{doctors.map((doctor) => <DoctorCard doctor={doctor} key={doctor.id}/>)}</div>
+            <button onClick={() => history.push('/home')}>Home</button>
         </div>
     )
 }

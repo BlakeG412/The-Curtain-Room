@@ -3,16 +3,14 @@ import {useHistory} from 'react-router-dom'
 
 export default function NewDoctorForm(props) {
 
-    const [doctor, setDoctor] = useState({
+    let [doctor, setDoctor] = useState({
         firstname: '',
         lastname: '',
         phone_number: '',
-        office_details: {
-            street_address: '',
-            city: '',
-            state: '',
-            zip_code: ''
-        },
+        street_address: '',
+        city: '',
+        state: '',
+        zip_code: '',
         practice: []
     })
 
@@ -31,13 +29,11 @@ export default function NewDoctorForm(props) {
                 firstname: doctor.firstname,
                 lastname: doctor.lastname,
                 phone_number: doctor.phone_number,
-                office_details: {
-                    street_address: doctor.office.street_address,
-                    city: doctor.office.city,
-                    state: doctor.office.state,
-                    zip_code: doctor.office.zipcode
-                },
-                practice: doctor.office.practice
+                street_address: doctor.street_address,
+                city: doctor.city,
+                state: doctor.state,
+                zip_code: doctor.zipcode,
+                practice: doctor.practice
             })
         })
         .then(response => response.json())
@@ -61,10 +57,10 @@ export default function NewDoctorForm(props) {
                 <input type="text" value={doctor.phone_number} onChange={ e => setDoctor({ ...doctor, phone_number: e.target.value })}></input>
                 <label>Doctor Office Address:</label>
                     <div>
-                        <input type="text" value={doctor.office_details.street_address} placeholder="Street Address" onChange={ e => setDoctor({ ...doctor.office_details, street_address: e.target.value })}></input>
-                        <input type="text" value={doctor.office_details.city} placeholder="City" onChange={ e => setDoctor({ ...doctor.office_details, city: e.target.value })}></input>
-                        <input type="text" value={doctor.office_details.state} placeholder="State" onChange={ e => setDoctor({ ...doctor.office_details, state: e.target.value })}></input>
-                        <input type="text" value={doctor.office_details.zip_code} placeholder="Zip Code" onChange={ e => setDoctor({ ...doctor.office_details, zip_code: e.target.value })}></input>
+                        <input type="text" value={doctor.street_address} placeholder="Street Address" onChange={ e => setDoctor({ ...doctor, street_address: e.target.value })}></input>
+                        <input type="text" value={doctor.city} placeholder="City" onChange={ e => setDoctor({ ...doctor, city: e.target.value })}></input>
+                        <input type="text" value={doctor.state} placeholder="State" onChange={ e => setDoctor({ ...doctor, state: e.target.value })}></input>
+                        <input type="text" value={doctor.zip_code} placeholder="Zip Code" onChange={ e => setDoctor({ ...doctor, zip_code: e.target.value })}></input>
                     </div>
                 <label>Practice:</label>
                 <input></input>

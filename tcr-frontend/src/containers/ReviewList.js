@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import ReviewCard from '../components/ReviewCard'
 
-export default function ReviewList() {
+export default function ReviewList(props) {
+
     let [reviews, setReviews] = useState([])
     
     useEffect(() => {
-        fetch('http://localhost:3000/reviews')
+        fetch('http://localhost:3000/reviews', {
+            credentials: 'include',
+            method: 'GET'
+        })
         .then(res => res.json())
         .then(reviewData => {
             setReviews(reviewData)
@@ -14,8 +18,10 @@ export default function ReviewList() {
 
     return (
         <div>
-            ReviewList
-            {reviews.map(review => <ReviewCard review= {review} key= {review.id}/>)}
+            <label>All Reviews:</label>
+            <div>
+                {reviews.map(review => <ReviewCard doctor={review.doctor} review={review} key={review.id}/>)}
+            </div>
         </div>
     )
 }
