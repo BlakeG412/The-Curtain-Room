@@ -11,6 +11,8 @@ export default function UserShow(props) {
         reviews: []
     })
 
+    let [reviews, setReviews] = useState([])
+
     useEffect(() => {
         fetch('http://localhost:3000/users', {
             credentials: 'include',
@@ -23,6 +25,18 @@ export default function UserShow(props) {
         })
     }, [])
 
+    useEffect(() => {
+        fetch('http://localhost:3000/reviews', {
+            credentials: 'include',
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(reviews => {
+            let userReviews = reviews.filter(review => review.user.id === parseInt(params.id))
+            setReviews(userReviews)
+        })
+    },[])
+
     return(
         <div>
             <h1>{user.username}</h1>
@@ -30,7 +44,7 @@ export default function UserShow(props) {
             <h3>{user.age}</h3>
             <h1>Reviews:</h1>
             <div>
-                {user.reviews.map((review) => <ReviewCard review={review} key={review.id} />)}
+                {reviews.map((review) => <ReviewCard doctor={review.doctor} review={review} key={review.id} />)}
             </div>
         </div>
     )

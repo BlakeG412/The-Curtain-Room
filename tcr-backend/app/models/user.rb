@@ -4,5 +4,5 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :doctors, through: :reviews
     has_many :likes
-    has_many :reviews, through: :likes
+    has_many :likereviews, through: :likes, source: :review
 end

@@ -36,6 +36,13 @@ export default function NavBar(props){
                 </h2>
             </div>
             <div className="item">
+                <h2 className="ui header">
+                    <div className="content">
+                        <Link to="/review/new" style={{color: "black"}}>New Review</Link>
+                    </div>
+                </h2>
+            </div>
+            <div className="item">
             <h2 className="ui header">
                 <div className="content">
                    <button onClick={logout}>Logout</button>

@@ -8,6 +8,13 @@ export default function DoctorShow() {
     const params = useParams()
     
     let [doctor, setDoctor] = useState({
+        // firstname: '',
+        // lastname: '',
+        // street_address: '',
+        // city: '',
+        // state: '',
+        // zip_code: '',
+        // phone_number: '',
         reviews: [],
         practice: {
             medicine: ''
@@ -48,7 +55,6 @@ export default function DoctorShow() {
             </div>
 
             <div>
-                <button onClick={() => history.push('/reviews/new')}>Write a Review</button>
                 <button onClick= {() => history.push('/doctors') }>All Doctors</button>
             </div>
 

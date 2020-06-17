@@ -8,7 +8,8 @@ export default function ReviewShow() {
 
     let [review, setReview] = useState({
         doctor: {},
-        user: {}
+        user: {},
+        created_at: ''
     })
 
     useEffect(() => {
@@ -34,7 +35,7 @@ export default function ReviewShow() {
             <label>Description:</label>
             <h3>{review.description}</h3>
             <label>Date:</label>
-            <h3>{review.created_at}</h3>
+            <h3>{review.created_at.slice(0, 10)}</h3>
             {/* <button onClick={() => increment likes}>{likes.count}Likes</button> */}
             <button onClick={() => history.push('/home')}>Home</button>
             <button onClick={() => history.push('/doctors')}>All Doctors</button>
