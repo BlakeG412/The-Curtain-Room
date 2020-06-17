@@ -34,7 +34,7 @@ export default function SignUp(props) {
         })
         .then( response =>  response.json())
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             let { success, id } = response
             if(success){
                 history.push(`/home`)

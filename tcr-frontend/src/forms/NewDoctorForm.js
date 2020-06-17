@@ -37,12 +37,12 @@ export default function NewDoctorForm(props) {
             })
         })
         .then(response => response.json())
-        .then(response => {
+        .then((response) => {
             // console.log(response)
-            // let { success, id } = response
-            // if(success){
-            //     history.push(`/home`)
-            // }
+            let { success, id } = response
+            if(success){
+                history.push(`/doctors/${doctor.id}`)
+            }
         })
     }
 
@@ -63,7 +63,15 @@ export default function NewDoctorForm(props) {
                         <input type="text" value={doctor.zip_code} placeholder="Zip Code" onChange={ e => setDoctor({ ...doctor, zip_code: e.target.value })}></input>
                     </div>
                 <label>Practice:</label>
-                <input></input>
+                
+                {/* <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                </div> */}
                 <input type="submit" />
             </form>
         </div>

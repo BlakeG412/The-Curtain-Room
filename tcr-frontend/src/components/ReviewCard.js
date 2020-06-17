@@ -16,7 +16,7 @@ export default function ReviewCard(props) {
                 <h3>{props.doctor.lastname}, {props.doctor.firstname}</h3>
                 <h4>{props.review.user.username}</h4>
                 <h5>{props.review.description}</h5>
-                <h4>{props.review.created_at}</h4>
+                <h4>{props.review.created_at.slice(0,10)}</h4>
             </button>
         </div>
     )

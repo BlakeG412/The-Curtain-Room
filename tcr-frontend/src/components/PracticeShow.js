@@ -7,6 +7,7 @@ export default function PracticeShow(){
     const params = useParams()
 
     let [doctors, setDoctors] = useState([])
+    let [practice, setPractice] = useState({})
 
     useEffect(() => {
         fetch('http://localhost:3000/doctors', {
@@ -27,11 +28,15 @@ export default function PracticeShow(){
         })
         .then(res => res.json())
         .then(practices => {
- 
+            let currentPractice = practices.find(practice => practice.id === parseInt(params.id))
+            setPractice(currentPractice)
         })
-    })
+    }, [])
 
     return(
-        <div>{doctors.map(doctor => <DoctorCard doctor={doctor} key={doctor.id}/>)}</div>
-    )
+        <div>
+            <h1>All {practice.medicine} Physicians</h1>
+            <div>{doctors.map(doctor => <DoctorCard doctor={doctor} key={doctor.id}/>)}</div>
+        </div>
+    )   
 }
