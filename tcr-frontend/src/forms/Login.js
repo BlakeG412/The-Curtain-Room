@@ -29,9 +29,10 @@ export default function Login(props) {
             console.log(response)
             let { success, id } = response
             if(success){
+                props.setUserid(id)
                 history.push(`/home`)
             }
-        })  
+        })
     }
 
     return (

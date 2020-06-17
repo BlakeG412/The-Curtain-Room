@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
-import Home from './Home'
+import Home from '../home/Home'
 import NewDoctorForm from '../forms/NewDoctorForm'
 import NewReviewForm from '../forms/NewReviewForm'
 import UserShow from './UserShow'
@@ -10,7 +10,7 @@ import ReviewList from '../containers/ReviewList'
 import ReviewShow from './ReviewShow'
 import PracticeList from '../containers/PracticeList'
 import PracticeShow from './PracticeShow'
-import NavBar from './NavBar'
+import NavBar from '../home/NavBar'
 
 export default function DefaultPage() {
 

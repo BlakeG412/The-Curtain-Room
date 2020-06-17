@@ -4,9 +4,6 @@ class LikesController < ApplicationController
         if like.valid?
             like.save
             render json: like
-        else
-            # 
-        end
     end
 
     def destroy

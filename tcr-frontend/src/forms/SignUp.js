@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom'
 // import Login from './Login'
-// import Home from '../components/Home'
   
 export default function SignUp(props) {
 
@@ -34,15 +33,12 @@ export default function SignUp(props) {
         })
         .then( response =>  response.json())
         .then((response) => {
-            // console.log(response)
             let { success, id } = response
             if(success){
                 history.push(`/home`)
             }
         })
-       
     }
-
 
     return (
         <div>

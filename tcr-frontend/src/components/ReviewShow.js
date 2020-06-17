@@ -12,6 +12,15 @@ export default function ReviewShow() {
         created_at: ''
     })
 
+    // let [like, setLike] = useState({
+    //     user_id: '',
+    //     review_id: ''
+    // })
+
+    // let [liked, setLiked] = useState({
+    //     success: 'false'
+    // })
+
     useEffect(() => {
         fetch('http://localhost:3000/reviews', {
             credentials: 'include',
@@ -23,6 +32,51 @@ export default function ReviewShow() {
             setReview(currentReview)
         })
     }, [])
+
+    // function handleLike(e) {
+    //     e.preventDefault()
+    //     if (liked.sucess = 'false')
+    //         useEffect(() => {
+    //             fetch('http://localhost:3000/likes', {
+    //                 credentials: 'include',
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Accept': 'application/json',
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({
+    //                     // user_id: user.id,
+    //                     // review_id: review.id
+    //                 })
+    //             })
+    //             .then(res => res.json())
+    //             .then(like => {
+    //                 setLike(like)
+    //                 setLiked('true')
+    //             })
+    //         }, [])
+    //     else
+    //         useEffect(() => {
+    //             fetch('http://localhost:3000/likes', {
+    //                 credentials: 'include',
+    //                 method: 'DELETE',
+    //                 headers: {
+    //                     'Accept': 'application/json',
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({
+    //                     // user_id: user.id,
+    //                     // review_id: review.id
+    //                 })
+    //             })
+    //             .then(res => res.json())
+    //             .then(like => {
+    //                 setLike(like)
+    //                 setLiked('false')
+    //             })
+    //         }, [])
+    //     end
+    // }
 
     return(
         <div>
@@ -36,7 +90,7 @@ export default function ReviewShow() {
             <h3>{review.description}</h3>
             <label>Date:</label>
             <h3>{review.created_at.slice(0, 10)}</h3>
-            {/* <button onClick={() => increment likes}>{likes.count}Likes</button> */}
+            {/* <button onClick={(e) => handleLike}>{likes.count}Likes</button> */}
             <button onClick={() => history.push('/home')}>Home</button>
             <button onClick={() => history.push('/doctors')}>All Doctors</button>
         </div>

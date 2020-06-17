@@ -18,7 +18,13 @@ class UsersController < ApplicationController
             username: params[:username],
             password: params[:password]
         })
-        render json: user
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            render json: {success: true, id: user.id}
+        else
+            render json: {success: false, id: nil}
+            render json: {error: "Invalid Username or Password!"}
+        end
     end
 
     def update
@@ -32,19 +38,12 @@ class UsersController < ApplicationController
         user.destroy
     end
 
+    def getuser
+        user = User.find(session[:user_id])
+        render json: {success: true, id: user.id}
+    end
+
     def user_params
         params.require(:user).permit(:firstname, :lastname, :age, :username, :password)
     end
-
-    # def define_current_user
-    #     if params[:id]
-    #         @current_user = User.find(params[:id])
-    #     else
-    #         @current_user = User.new
-    #     end
-    # end
-    
-    # def current_user
-    #     @current_user
-    # end
 end
