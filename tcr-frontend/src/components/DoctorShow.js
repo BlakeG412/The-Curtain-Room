@@ -26,8 +26,6 @@ export default function DoctorShow() {
         })
     }, [])
 
-    console.log(doctor)
-
     return(
         <div>
             <div>

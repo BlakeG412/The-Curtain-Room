@@ -24,7 +24,7 @@ export default function NavBar(props){
             <div className="item">
             <h2 className="ui header">
                 <div className="content">
-                    <Link to="/reviews/new" style={{color: "black"}}>New Review</Link>
+                    <Link to="/practices" style={{color: "black"}}>Practices</Link>
                 </div>
             </h2>
             </div>

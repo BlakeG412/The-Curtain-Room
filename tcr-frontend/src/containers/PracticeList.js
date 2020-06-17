@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import PracticeCard from '../components/PracticeCard'
 
 export default function PracticeList() {
+
+    const history = useHistory()
 
     let [practices, setPractices] = useState([])
 
@@ -14,7 +17,7 @@ export default function PracticeList() {
         .then(practices => {
             setPractices(practices)
         })
-    })
+    }, [])
 
     return(
         <div>
@@ -22,6 +25,7 @@ export default function PracticeList() {
             <div>
                 {practices.map((practice) => <PracticeCard practice={practice} key={practice.id} />)}
             </div>
+            <button onClick={() => history.push('/home')}>Home</button>
         </div>
     )
 }

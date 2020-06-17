@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 
 export default function NewDoctorForm(props) {
 
-    const [doctor, setDoctor] = useState({
+    let [doctor, setDoctor] = useState({
         firstname: '',
         lastname: '',
         phone_number: '',
