@@ -35,6 +35,7 @@ export default function SignUp(props) {
         .then((response) => {
             let { success, id } = response
             if(success){
+                props.setUserid(id)
                 history.push(`/home`)
             }
         })
