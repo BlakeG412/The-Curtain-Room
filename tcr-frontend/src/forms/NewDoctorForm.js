@@ -17,33 +17,33 @@ export default function NewDoctorForm(props) {
     const history = useHistory()
 
     function handleSubmit(e){
-        e.preventDefault()
-        fetch('http://localhost:3000/doctors', {
-            credentials: 'include',
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                firstname: doctor.firstname,
-                lastname: doctor.lastname,
-                phone_number: doctor.phone_number,
-                street_address: doctor.street_address,
-                city: doctor.city,
-                state: doctor.state,
-                zip_code: doctor.zipcode,
-                practice: doctor.practice
-            })
-        })
-        .then(response => response.json())
-        .then((response) => {
-            // console.log(response)
-            let { success, id } = response
-            if(success){
-                history.push(`/doctors/${doctor.id}`)
-            }
-        })
+        // e.preventDefault()
+        // fetch('http://localhost:3000/doctors', {
+        //     credentials: 'include',
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         firstname: doctor.firstname,
+        //         lastname: doctor.lastname,
+        //         phone_number: doctor.phone_number,
+        //         street_address: doctor.street_address,
+        //         city: doctor.city,
+        //         state: doctor.state,
+        //         zip_code: doctor.zipcode,
+        //         practice: doctor.practice
+        //     })
+        // })
+        // .then(response => response.json())
+        // .then((response) => {
+        //     // console.log(response)
+        //     let { success, id } = response
+        //     if(success){
+        //         history.push(`/doctors/${doctor.id}`)
+        //     }
+        // })
     }
 
     return(

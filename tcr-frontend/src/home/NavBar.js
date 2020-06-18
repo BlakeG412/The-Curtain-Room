@@ -26,45 +26,43 @@ export default function NavBar(props){
     
     return(
         <div>
-            <a href={"/home"}>
-                <h2>
-                    <div>The Curtain Room</div>
-                </h2>
+            <a>
+                <h1>
+                    <Link to="/home" style={{color: "black"}}>The Curtain Room</Link>
+                </h1>
             </a>
             <div>
-            <h2>
-                <div>
-                    <Link to="/home" style={{color: "black"}}>Home</Link>
-                </div>
-            </h2>
-            </div>
-            <div className="item">
-            <h2 className="ui header">
-                <div className="content">
-                    <Link to="/practices" style={{color: "black"}}>Practices</Link>
-                </div>
-            </h2>
-            </div>
-            <div>
                 <h2>
                     <div>
-                        <Link to={`/users/${props.userid}`} style={{color: "black"}}>Profile</Link>
+                        <Link to="/practices" style={{color: "black"}}>Practices</Link>
                     </div>
                 </h2>
             </div>
             <div>
                 <h2>
                     <div>
-                        <Link to="/review/new" style={{color: "black"}}>New Review</Link>
+                        <Link to="/reviews/new" style={{color: "black"}}>Write Review</Link>
                     </div>
                 </h2>
             </div>
             <div>
-            <h2>
-                <div>
-                   <button onClick={logout}>Logout</button>
-                </div>
-            </h2>
+                <h2>
+                    <div>
+                        <Link to="/doctors/new" style={{color: "black"}}>Add Doctor </Link>
+                    </div>
+                </h2>
+            </div>
+            <div>
+                <h2>
+                    <div>
+                        <Link to={`/user/${props.userid}`} style={{color: "black"}}>Profile</Link>
+                    </div>
+                </h2>
+            </div>
+            <div>
+                <h4>
+                        <button onClick={logout}>Logout</button>
+                </h4>
             </div>
         </div>
     )

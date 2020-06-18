@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import {BrowserRouter, Route, Switch, useHistory} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Login from './forms/Login'
 import SignUp from './forms/SignUp'
 import DefaultPage from './components/DefaultPage'
 
 function App() {
-
-    const history = useHistory()
 
     let [userid, setUserid] = useState(null)
 

@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
     def show
         review = Review.find_by(id: params[:id])
-        render json: review, include: [:doctor, :user, likes: {include: :user}]
+        render json: review, include: [:user, {doctor: {include: :practice}}, likes: {include: :user}]
     end
 
     def create

@@ -11,7 +11,7 @@ export default function NewReviewForm(props) {
             let currentUser = users.find(user => user.id === props.userid)
             setReviewuser(currentUser)
         })
-    })
+    }, [])
 
     function handleSubmit(e) {
         // e.preventDefault()
