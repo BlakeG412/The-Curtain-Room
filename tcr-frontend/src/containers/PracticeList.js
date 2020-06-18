@@ -21,11 +21,8 @@ export default function PracticeList() {
 
     return(
         <div>
-            <label>All Practices:</label>
-            <div>
+            <h1 class="center">Practices:</h1>
                 {practices.map((practice) => <PracticeCard practice={practice} key={practice.id} />)}
-            </div>
-            <button onClick={() => history.push('/home')}>Home</button>
         </div>
     )
 }

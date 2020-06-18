@@ -21,9 +21,8 @@ export default function DoctorList() {
 
     return(
         <div>
-            <label>All Doctors</label>
+            <h1 class="center">Doctors:</h1>
             <div>{doctors.map((doctor) => <DoctorCard doctor={doctor} key={doctor.id}/>)}</div>
-            <button onClick={() => history.push('/home')}>Home</button>
         </div>
     )
 }

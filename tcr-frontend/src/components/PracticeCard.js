@@ -8,9 +8,7 @@ export default function PracticeCard(props) {
 
     return(
         <div>
-            <ul className="ulformStyle">
-                <li className="liformStyle"><a onClick={() => history.push(`/practice/${props.practice.id}`)}>{props.practice.medicine}</a></li>
-            </ul>
+                <button class="button1" onClick={() => history.push(`/practice/${props.practice.id}`)}>{props.practice.medicine}</button>
         </div>
     )
 }

@@ -37,15 +37,16 @@ export default function DoctorShow() {
     return(
         <div>
             <div>
-                <h1>{doctor.firstname}, {doctor.lastname}</h1>
+                <h1>Dr. {doctor.firstname} {doctor.lastname}</h1>
                 <p>
                     <label>Office Details:</label>
                     <h2>
                         {doctor.street_address}
                         <br/>
                         {doctor.city}, {doctor.state}
+                        <br/>
+                        {doctor.zip_code}
                     </h2>
-                    <h3>{doctor.zip_code}</h3>
                 </p>
                 <p>
                     <label>Phone Number:</label>
@@ -56,14 +57,14 @@ export default function DoctorShow() {
                     <h3>{doctor.practice.medicine}</h3>
                 </p>
             </div>
-            <button onClick={() => history.push('/home')}>Home</button>
             <div>
-                <h1>Reviews:</h1>
+                <h1 class="center">Reviews:</h1>
                 <div>
                     {doctor.reviews.map((review) => <ReviewCard doctor={doctor} review={review} key={review.id}/>)}
                 </div>
             </div>
             <button onClick={() =>history.push('/doctors')}>All Doctors</button>
+            <button onClick={() => history.push('/home')}>Home</button>
         </div>
     )
 }

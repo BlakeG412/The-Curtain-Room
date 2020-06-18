@@ -18,7 +18,7 @@ export default function ReviewList(props) {
 
     return (
         <div>
-            <label>All Reviews:</label>
+            <h1 class="center">Reviews:</h1>
             <div>
                 {reviews.map(review => <ReviewCard doctor={review.doctor} review={review} key={review.id}/>)}
             </div>

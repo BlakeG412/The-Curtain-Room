@@ -49,7 +49,6 @@ export default function ReviewShow(props) {
     let handleLike = () => {
         console.log(reviewLikes)
         reviewLikes.forEach(like => {
-            console.log(like)
             if (like.user.id === props.userid) {
                 console.log(like)
                     fetch(`http://localhost:3000/likes/${like.id}`, {
@@ -67,7 +66,6 @@ export default function ReviewShow(props) {
             }
         })
         if (reviewLikes.length==0){
-            console.log('here')
             fetch('http://localhost:3000/likes', {
                         credentials: 'include',
                         method: 'POST',
@@ -104,7 +102,7 @@ export default function ReviewShow(props) {
                 <h2>{review.user.username}</h2>
             </p>
             <p>
-                <label>Description:</label>
+                <label>Description of Office Visit:</label>
                 <h3>{review.description}</h3>
             </p>
             <p>

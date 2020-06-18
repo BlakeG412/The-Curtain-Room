@@ -9,10 +9,8 @@ export default function DoctorCard(props) {
     //     practice: ''
     // })
 
-    console.log(props.doctor.id)
-
     return(
-        <button onClick={() => history.push(`/doctor/${props.doctor.id}`)}>
+        <button class="button2" onClick={() => history.push(`/doctor/${props.doctor.id}`)}>
         <h1>
             {props.doctor.lastname}, {props.doctor.firstname}
         </h1>

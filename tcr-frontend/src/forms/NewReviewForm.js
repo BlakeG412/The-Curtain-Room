@@ -62,22 +62,21 @@ export default function NewReviewForm(props) {
         <div>
             <h1>New Review</h1>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>User:</label>
-                    <div>{reviewuser.username}</div>
-                </div>
-                <div>
-                    {/* <label>Doctor:</label> */}
-                    <div class="dropdown">
-                    <span>Doctor:</span>
-                    <div class="dropdown-content">
-                    {doctors.map(doctor => <a onClick={() => setReview({ ...review, doctor_id: doctor.id})}>{doctor.lastname}, {doctor.firstname}</a>)}
-                        {/* <div>{doctor.lastname}, {doctor.firstname}</div> */}
+                <div class="row">
+                    <div class="col-25">
+                        <label>User:</label>
+                    </div>
+                    <div class="col-75">
+                        {reviewuser.username}
                     </div>
                 </div>
+                <div class="dropdown">
+                    <span>Doctor:</span>
+                    <div class="dropdown-content">
+                        {doctors.map(doctor => <a onClick={() => setReview({ ...review, doctor_id: doctor.id})}>{doctor.lastname}, {doctor.firstname}</a>)}
+                    </div>
                 </div>
                 <div>
-                    <label>Description of Visit:</label>
                     <textarea placeholder={'Description of Office Visit'} value={review.description} onChange={ e => setReview({ ...review, description: e.target.value })}></textarea>
                 </div>
                 <input type="submit" />

@@ -14,8 +14,14 @@ Like.destroy_all
 
 p1 = Practice.create({medicine: 'Dental'})
 p2 = Practice.create({medicine: 'Pediatric'})
-p3 = Practice.create({medicine: 'Orthdontics'})
-p4 = Practice.create({medicine: 'Podiatry'})
+p3 = Practice.create({medicine: 'Orthdontic'})
+p4 = Practice.create({medicine: 'Podiatric'})
+p5 = Practice.create({medicine: 'Dermatologic'})
+p6 = Practice.create({medicine: 'Pathologic'})
+p7 = Practice.create({medicine: 'Neruologic'})
+p8 = Practice.create({medicine: 'Emergency Medical'})
+p9 = Practice.create({medicine: 'Psychiatric'})
+p10 = Practice.create({medicine: 'Urologic'})
 
 u1 = User.create({firstname: 'Blake', lastname: 'Gaal', age: 21, username: 'blakeg', password: 'blakeg'})
 u2 = User.create({firstname: 'Sam', lastname: 'Flynn', age: 23, username: 'samf', password: 'samf'})
