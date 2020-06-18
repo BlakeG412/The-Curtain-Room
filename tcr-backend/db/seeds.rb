@@ -33,4 +33,4 @@ r1 = Review.create({doctor_id: d1.id, user_id: u1.id, description: "review of of
 r2 = Review.create({doctor_id: d2.id, user_id: u2.id, description: "Office visit for check up"})
 
 l1 = Like.create({user_id: u1.id, review_id: r1.id})
-l1 = Like.create({user_id: u1.id, review_id: r2.id})
+l2 = Like.create({user_id: u1.id, review_id: r2.id})

@@ -1,22 +1,39 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 
 export default function NavBar(props){
 
+    const history = useHistory()
+
     let logout = () => {
-        localStorage.clear()
+        fetch('http://localhost:3000/logout', {
+            credentials: 'include',
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            let { success, id } = response
+            if(!success){
+                props.setUserid(id)
+                history.push(`/`)
+            }
+        })
     }
     
     return(
-        <div className="ui inverted red menu">
-            <a className="item" href={"/home"}>
-            <h2 className="ui header">
-            <div className="content">The Curtain Room</div>
-            </h2>
+        <div>
+            <a href={"/home"}>
+                <h2>
+                    <div>The Curtain Room</div>
+                </h2>
             </a>
-            <div className="item">
-            <h2 className="ui header">
-                <div className="content">
+            <div>
+            <h2>
+                <div>
                     <Link to="/home" style={{color: "black"}}>Home</Link>
                 </div>
             </h2>
@@ -28,28 +45,27 @@ export default function NavBar(props){
                 </div>
             </h2>
             </div>
-            <div className="item">
-                <h2 className="ui header">
-                    <div className="content">
-                        <Link to="/user/:id" style={{color: "black"}}>Profile</Link>
+            <div>
+                <h2>
+                    <div>
+                        <Link to={`/users/${props.userid}`} style={{color: "black"}}>Profile</Link>
                     </div>
                 </h2>
             </div>
-            <div className="item">
-                <h2 className="ui header">
-                    <div className="content">
+            <div>
+                <h2>
+                    <div>
                         <Link to="/review/new" style={{color: "black"}}>New Review</Link>
                     </div>
                 </h2>
             </div>
-            <div className="item">
-            <h2 className="ui header">
-                <div className="content">
+            <div>
+            <h2>
+                <div>
                    <button onClick={logout}>Logout</button>
                 </div>
             </h2>
             </div>
-            
         </div>
     )
 }

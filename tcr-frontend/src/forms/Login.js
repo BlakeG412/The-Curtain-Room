@@ -3,6 +3,8 @@ import { Link, useHistory } from 'react-router-dom'
   
 export default function Login(props) {
 
+    console.log(props.userid)
+
     let [ user, changeUser ] = useState({
         username: '',
         password: ''
@@ -26,7 +28,6 @@ export default function Login(props) {
         })
         .then(response => response.json())
         .then(response => {
-            console.log(response)
             let { success, id } = response
             if(success){
                 props.setUserid(id)

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useImperativeHandle} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
 
 export default function ReviewShow(props) {
@@ -12,19 +12,14 @@ export default function ReviewShow(props) {
         likes: [],
         created_at: ''
     })
-    console.log(review.likes)
 
     let reviewLikes = review.likes
-    // setLike(reviewLikes.length)
 
     let [likecount, setLike] = useState(reviewLikes.length || 0)
 
     let handleLike = () => {
-        console.log(reviewLikes)
         reviewLikes.forEach(like => {
-            console.log(like)
             if (like.user.id === props.userid) {
-                console.log(like)
                     fetch(`http://localhost:3000/likes/${like.id}`, {
                         credentials: 'include',
                         method: 'DELETE',
@@ -40,7 +35,6 @@ export default function ReviewShow(props) {
             }
         })
         if (reviewLikes.length==0){
-            console.log('here')
             fetch('http://localhost:3000/likes', {
                         credentials: 'include',
                         method: 'POST',
