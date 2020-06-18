@@ -7,9 +7,4 @@ class ApplicationController < ActionController::Base
     def render_error_response(error)
         render json: error
     end
-
-    def current_user
-        User.find(session[:user_id])
-    end
-
 end

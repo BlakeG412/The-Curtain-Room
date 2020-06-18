@@ -1,22 +1,23 @@
 class LikesController < ApplicationController
+    def index
+        likes = Like.all 
+        render json: likes
+    end
+
+    # def show
+    # end
+
     def create
-        like = Like.new(like_params)
-        if like.valid?
-            like.save
-            render json: like
-        else
-            # 
-        end
+        # byebug
+        like = Like.create({
+            user_id: params[:user_id],
+            review_id: params[:review_id],
+        })
+        render json: like, include: :user
     end
 
     def destroy
         like = Like.find(params[:id])
         like.destroy
-    end
-
-    private
-    
-    def like_params
-        params.require(:like).permit(:user_id, :review_id)
     end
 end

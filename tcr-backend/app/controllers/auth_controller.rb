@@ -9,4 +9,8 @@ class AuthController < ApplicationController
             render json: {error: "Invalid username or password"}
         end
     end
+
+    def logout
+        session.Clear()
+    end
 end

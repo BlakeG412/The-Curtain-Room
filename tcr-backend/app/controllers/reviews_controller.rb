@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
     def index
         reviews = Review.all 
-        render json: reviews, include: [:doctor, :user]
+        render json: reviews, include: [:doctor, :user, likes: {include: :user}]
     end
 
     def show
         review = Review.find_by(id: params[:id])
-        render json: review, include: [:doctor, :user]
+        render json: review, include: [:doctor, :user, likes: {include: :user}]
     end
 
     def create

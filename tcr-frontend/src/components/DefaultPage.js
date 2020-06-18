@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
-import Home from './Home'
+import Home from '../home/Home'
 import NewDoctorForm from '../forms/NewDoctorForm'
 import NewReviewForm from '../forms/NewReviewForm'
 import UserShow from './UserShow'
@@ -10,9 +10,9 @@ import ReviewList from '../containers/ReviewList'
 import ReviewShow from './ReviewShow'
 import PracticeList from '../containers/PracticeList'
 import PracticeShow from './PracticeShow'
-import NavBar from './NavBar'
+import NavBar from '../home/NavBar'
 
-export default function DefaultPage() {
+export default function DefaultPage(props) {
 
     return (
     <div>
@@ -24,7 +24,7 @@ export default function DefaultPage() {
                     <Route exact path="/doctors/:id" component={DoctorShow} />
                     <Route exact path="/doctor/new" component={NewDoctorForm} />
                     <Route exact path="/reviews" component={ReviewList} />
-                    <Route exact path="/reviews/:id" component={ReviewShow} />
+                    <Route exact path="/reviews/:id" component={() => <ReviewShow userid={props.userid}/>} />
                     <Route exact path="/review/new" component={NewReviewForm} />
                     <Route exact path="/practices" component={PracticeList} />
                     <Route exact path="/practices/:id" component={PracticeShow} />
