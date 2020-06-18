@@ -26,16 +26,16 @@ function App() {
               setUserid(id)
             }
       })
-
     }, [])
 
     return (
     <div>
       <BrowserRouter>
                 <Switch>
-                    <Route exact path = "/" component={() => <Login setUserid={setUserid} />} />
+                    <Route exact path = "/" component={() => <Login setUserid={setUserid} userid={userid}/>} />
+                    <Route exact path = "/login" component={() => <Login setUserid={setUserid} userid={userid}/>} />
                     <Route exact path= "/signup" component={() => <SignUp setUserid={setUserid}/>} />
-                    {userid?<DefaultPage userid={userid} />:''}
+                    {userid?<DefaultPage userid={userid} setUserid={setUserid}/>:''}
                 </Switch>
       </BrowserRouter>
     </div>

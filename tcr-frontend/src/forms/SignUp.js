@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom'
-// import Login from './Login'
   
 export default function SignUp(props) {
 
@@ -31,8 +30,8 @@ export default function SignUp(props) {
                 password: user.password
             })
         })
-        .then( response =>  response.json())
-        .then((response) => {
+        .then(response =>  response.json())
+        .then(response => {
             let { success, id } = response
             if(success){
                 props.setUserid(id)

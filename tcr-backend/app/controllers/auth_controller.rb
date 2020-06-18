@@ -11,6 +11,7 @@ class AuthController < ApplicationController
     end
 
     def logout
-        session.Clear()
+        session.clear
+        render json: {success: false, id: nil}
     end
 end

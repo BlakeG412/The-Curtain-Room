@@ -4,11 +4,7 @@ class LikesController < ApplicationController
         render json: likes
     end
 
-    # def show
-    # end
-
     def create
-        # byebug
         like = Like.create({
             user_id: params[:user_id],
             review_id: params[:review_id],
