@@ -14,7 +14,7 @@ export default function ReviewList(props) {
         .then(reviewData => {
             setReviews(reviewData)
         })
-    },[])
+    }, [])
 
     return (
         <div>

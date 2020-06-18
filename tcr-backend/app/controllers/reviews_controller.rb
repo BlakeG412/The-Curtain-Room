@@ -10,13 +10,13 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        review = Review.new(review_params)
-        if review.valid?
-            review.save
-            render json: review
-        else
-            render json: {message: 'Please complete all form entries'}
-        end
+        review = Review.create({
+            user_id: params[:user_id],
+            doctor_id: params[:doctor_id],
+            description: params[:description]
+        })
+
+        render json: {success: true, id: review.id}
     end
 
     def destroy

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
   
 export default function SignUp(props) {
 
@@ -68,7 +68,7 @@ export default function SignUp(props) {
         </form>
         <div>
               Already have an account?
-            <Link to="/">Login</Link>
+            <button onClick={() => history.push('/login')}>Login</button>
         </div>
         </div>
         

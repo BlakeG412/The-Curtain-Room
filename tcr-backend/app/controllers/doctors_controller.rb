@@ -14,13 +14,23 @@ class DoctorsController < ApplicationController
     end
 
     def create
-        doctor = Doctor.new(doctor_params)
-        if doctor.valid?
-            doctor.save
-            render json: doctor
-        else
-            render json: {message: 'Please complete the form for your doctor'}
-        end
+        doctor = Doctor.create({
+            firstname: params[:firstname],
+            lastname: params[:lastname],
+            phone_number: params[:phone_number],
+            street_address: params[:street_address],
+            city: params[:city],
+            state: params[:state],
+            zip_code: params[:zip_code],
+            practice_id: params[:practice_id]
+        })
+        render json: {success: true, id: doctor.id}
+        # if doctor.valid?
+        #     doctor.save
+        #     render json: doctor
+        # else
+        #     render json: {message: 'Please complete the form for your doctor'}
+        # end
     end
 
     def update
