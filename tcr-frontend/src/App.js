@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Login from './forms/Login'
 import SignUp from './forms/SignUp'
 import DefaultPage from './components/DefaultPage'
+// import AppStyle from './App.css'
 
 function App() {
 

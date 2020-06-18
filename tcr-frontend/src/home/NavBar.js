@@ -1,5 +1,6 @@
 import React from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+import myStyles from '../components/myStyles.css'
 
 export default function NavBar(props){
 
@@ -26,44 +27,21 @@ export default function NavBar(props){
     
     return(
         <div>
-            <a>
-                <h1>
-                    <Link to="/home" style={{color: "black"}}>The Curtain Room</Link>
-                </h1>
-            </a>
-            <div>
-                <h2>
-                    <div>
-                        <Link to="/practices" style={{color: "black"}}>Practices</Link>
-                    </div>
-                </h2>
-            </div>
-            <div>
-                <h2>
-                    <div>
-                        <Link to="/reviews/new" style={{color: "black"}}>Write Review</Link>
-                    </div>
-                </h2>
-            </div>
-            <div>
-                <h2>
-                    <div>
-                        <Link to="/doctors/new" style={{color: "black"}}>Add Doctor </Link>
-                    </div>
-                </h2>
-            </div>
-            <div>
-                <h2>
-                    <div>
-                        <Link to={`/user/${props.userid}`} style={{color: "black"}}>Profile</Link>
-                    </div>
-                </h2>
-            </div>
-            <div>
+            <ul>
+                <li><a href="/home">The Curtain Room</a></li>
+                <li><a href="/practices">Practices</a></li>
+                <li><a href="/doctors">Doctors</a></li>
+                <li><a href="/reviews/new">Write Review</a></li>
+                <li><a href="/doctors/new">Add Doctor</a></li>
+                <li><a href={`/user/${props.userid}`}>Profile</a></li>
+                <li style={{float:"right"}}><a onClick={logout}>Logout</a></li>
+            </ul>
+            
+            {/* <div>
                 <h4>
                         <button onClick={logout}>Logout</button>
                 </h4>
-            </div>
+            </div> */}
         </div>
     )
 }

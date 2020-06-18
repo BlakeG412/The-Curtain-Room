@@ -42,8 +42,4 @@ class UsersController < ApplicationController
         user = User.find(session[:user_id])
         render json: {success: true, id: user.id}
     end
-
-    def user_params
-        params.require(:user).permit(:firstname, :lastname, :age, :username, :password)
-    end
 end

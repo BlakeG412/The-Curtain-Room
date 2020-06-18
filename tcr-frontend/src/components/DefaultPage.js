@@ -18,13 +18,13 @@ export default function DefaultPage(props) {
 
     return (
     <div>
-        <NavBar setUserid={props.setUserid} userid={props.userid}/>
+        <NavBar setUserid={props.setUserid} userid={props.userid} active={false}/>
                 <Switch>
                     <Route exact path= "/home" component={() => <Home userid={props.userid}/>} />
                     <Route exact path="/user/:id" component={() => <UserShow userid={props.userid}/>} />
                     <Route exact path="/doctors" component={DoctorList} />
-                    <Route exact path="/doctor/:id" component={DoctorShow} />
                     <Route exact path="/doctors/new" component={NewDoctorForm} />
+                    <Route exact path="/doctor/:id" component={DoctorShow} />
                     <Route exact path="/reviews" component={ReviewList} />
                     <Route exact path="/review/:id" component={() => <ReviewShow userid={props.userid}/>} />
                     <Route exact path="/reviews/new" component={() => <NewReviewForm userid={props.userid}/>} />

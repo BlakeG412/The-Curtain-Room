@@ -33,17 +33,25 @@ export default function UserShow(props) {
 
     return(
         <div>
-            <h1>{user.firstname} {user.lastname}</h1>
-            <label>Username:</label>
-            <h2>{user.username}</h2>
-            {/* <label>Password:</label>
-            <h2>{user.password_digest}</h2> */}
-            <label>Age:</label>
-            <h3>{user.age}</h3>
-            <h1>Reviews:</h1>
-            <div>
-                {reviews.map((review) => <ReviewCard doctor={review.doctor} review={review} key={review.id} />)}
-            </div>
+            <p>
+                <h1>{user.firstname} {user.lastname}</h1>
+            </p>
+            <p>
+                <label>Username:</label>
+                <h2>{user.username}</h2>
+            </p>
+                {/* <label>Password:</label>
+                <h2>{user.password_digest}</h2> */}
+            <p>
+                <label>Age:</label>
+                <h3>{user.age}</h3>
+            </p>
+            <p>
+                <h1>Reviews:</h1>
+                <div>
+                    {reviews.map((review) => <ReviewCard doctor={review.doctor} review={review} key={review.id} />)}
+                </div>
+            </p>
         </div>
     )
 }

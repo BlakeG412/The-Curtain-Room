@@ -1,15 +1,16 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
+import './myStyles.css'
 
 export default function PracticeCard(props) {
 
     const history = useHistory()
 
     return(
-        <div onClick={() => history.push(`/practice/${props.practice.id}`)}>
-            <button>
-            <h3>{props.practice.medicine}</h3>
-            </button>
+        <div>
+            <ul className="ulformStyle">
+                <li className="liformStyle"><a onClick={() => history.push(`/practice/${props.practice.id}`)}>{props.practice.medicine}</a></li>
+            </ul>
         </div>
     )
 }
