@@ -36,7 +36,7 @@ export default function PracticeShow(){
 
     return(
         <div>
-            <h1>All {practice.medicine} Physicians</h1>
+            <h1 class="center">All {practice.medicine} Physicians</h1>
             <div>{doctors.map(doctor => <DoctorCard doctor={doctor} key={doctor.id}/>)}</div>
         </div>
     )   

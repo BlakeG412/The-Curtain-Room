@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
-import myStyles from '../components/myStyles.css'
+import '../components/myStyles.css'
 
 export default function NewDoctorForm(props) {
 
@@ -59,7 +59,8 @@ export default function NewDoctorForm(props) {
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
+            <h1>New Doctor</h1>
+            <form action="/action_page.php" onSubmit={handleSubmit}>
                 <label>Doctor First-Name:</label>
                 <input type="text" value={doctor.firstname} onChange={ e => setDoctor({ ...doctor, firstname: e.target.value })}></input>
                 <label>Doctor Last-Name:</label>
@@ -69,11 +70,10 @@ export default function NewDoctorForm(props) {
                 <br/>
                 <label>Doctor Office Address:</label>
                     <div>
-                        <input type="text" value={doctor.street_address} placeholder="Street Address" onChange={ e => setDoctor({ ...doctor, street_address: e.target.value })}></input>
-                        <input type="text" value={doctor.city} placeholder="City" onChange={ e => setDoctor({ ...doctor, city: e.target.value })}></input>
-                        <input type="text" value={doctor.state} placeholder="State" onChange={ e => setDoctor({ ...doctor, state: e.target.value })}></input>
-                        <input type="text" value={doctor.zip_code} placeholder="Zip Code" onChange={ e => setDoctor({ ...doctor, zip_code: e.target.value })}></input>
-                        {/* <input type="text" value={doctor.zip_code} placeholder="Zip Code" onChange={ e => setDoctor({ ...doctor, zip_code: e.target.value })}></input> */}
+                        <input class="inputStyle" type="text" value={doctor.street_address} placeholder="Street Address" onChange={ e => setDoctor({ ...doctor, street_address: e.target.value })}></input>
+                        <input class="inputStyle" type="text" value={doctor.city} placeholder="City" onChange={ e => setDoctor({ ...doctor, city: e.target.value })}></input>
+                        <input class="inputStyle" type="text" value={doctor.state} placeholder="State" onChange={ e => setDoctor({ ...doctor, state: e.target.value })}></input>
+                        <input class="inputStyle" type="text" value={doctor.zip_code} placeholder="Zip Code" onChange={ e => setDoctor({ ...doctor, zip_code: e.target.value })}></input>
                     </div>
                 <div class="dropdown">
                     <span>Practice:</span>

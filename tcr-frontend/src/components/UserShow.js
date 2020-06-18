@@ -36,7 +36,7 @@ export default function UserShow(props) {
             <p>
                 <h1>{user.firstname} {user.lastname}</h1>
             </p>
-            <p>
+            <p class="showStyle">
                 <label>Username:</label>
                 <h2>{user.username}</h2>
             </p>
@@ -47,7 +47,7 @@ export default function UserShow(props) {
                 <h3>{user.age}</h3>
             </p>
             <p>
-                <h1>Reviews:</h1>
+                <h1 class="center">Reviews:</h1>
                 <div>
                     {reviews.map((review) => <ReviewCard doctor={review.doctor} review={review} key={review.id} />)}
                 </div>
