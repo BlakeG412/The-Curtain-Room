@@ -11,6 +11,6 @@ class AuthController < ApplicationController
     end
 
     def logout
-        
+        session.Clear()
     end
 end

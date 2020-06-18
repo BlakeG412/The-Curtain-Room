@@ -35,7 +35,7 @@ function App() {
                 <Switch>
                     <Route exact path = "/" component={() => <Login setUserid={setUserid} />} />
                     <Route exact path= "/signup" component={() => <SignUp setUserid={setUserid}/>} />
-                    {userid?<DefaultPage />:''}
+                    {userid?<DefaultPage userid={userid} />:''}
                 </Switch>
       </BrowserRouter>
     </div>

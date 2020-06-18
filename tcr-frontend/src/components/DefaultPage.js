@@ -12,7 +12,7 @@ import PracticeList from '../containers/PracticeList'
 import PracticeShow from './PracticeShow'
 import NavBar from '../home/NavBar'
 
-export default function DefaultPage() {
+export default function DefaultPage(props) {
 
     return (
     <div>
@@ -24,7 +24,7 @@ export default function DefaultPage() {
                     <Route exact path="/doctors/:id" component={DoctorShow} />
                     <Route exact path="/doctor/new" component={NewDoctorForm} />
                     <Route exact path="/reviews" component={ReviewList} />
-                    <Route exact path="/reviews/:id" component={ReviewShow} />
+                    <Route exact path="/reviews/:id" component={() => <ReviewShow userid={props.userid}/>} />
                     <Route exact path="/review/new" component={NewReviewForm} />
                     <Route exact path="/practices" component={PracticeList} />
                     <Route exact path="/practices/:id" component={PracticeShow} />
