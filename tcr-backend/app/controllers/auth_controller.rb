@@ -6,7 +6,7 @@ class AuthController < ApplicationController
             render json: {success: true, id: user.id}
         else
             render json: {success: false, id: nil}
-            render json: {error: "Invalid username or password"}
+            # render json: {error: "Invalid username or password"}
         end
     end
 

@@ -12,7 +12,7 @@ export default function ReviewCard(props) {
 
     return (
         <div>
-            <button onClick={() => history.push(`/reviews/${props.review.id}`)}>
+            <button onClick={() => history.push(`/review/${props.review.id}`)}>
                 <h3>{props.doctor.lastname}, {props.doctor.firstname}</h3>
                 <h4>{props.review.user.username}</h4>
                 <h5>{props.review.description}</h5>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useParams, useHistory} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import DoctorCard from './DoctorCard'
 
 export default function PracticeShow(){
@@ -7,6 +7,7 @@ export default function PracticeShow(){
     const params = useParams()
 
     let [doctors, setDoctors] = useState([])
+
     let [practice, setPractice] = useState({})
 
     useEffect(() => {

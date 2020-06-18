@@ -6,7 +6,7 @@ export default function PracticeCard(props) {
     const history = useHistory()
 
     return(
-        <div onClick={() => history.push(`/practices/${props.practice.id}`)}>
+        <div onClick={() => history.push(`/practice/${props.practice.id}`)}>
             <button>
             <h3>{props.practice.medicine}</h3>
             </button>

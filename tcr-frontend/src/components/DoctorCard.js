@@ -5,8 +5,12 @@ export default function DoctorCard(props) {
 
     const history = useHistory()
 
+    // let [doctor, setDoctor] = useState({
+    //     practice: ''
+    // })
+
     return(
-        <button onClick={() => history.push(`/doctors/${props.doctor.id}`)}>
+        <button onClick={() => history.push(`/doctor/${props.doctor.id}`)}>
         <h1>
             {props.doctor.lastname}, {props.doctor.firstname}
         </h1>

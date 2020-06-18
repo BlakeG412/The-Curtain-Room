@@ -3,7 +3,7 @@ import ReviewList from '../containers/ReviewList'
 
 export default function Home(props){
 
-    let [reviews, setReviews] = useState([])
+    // let [reviews, setReviews] = useState([])
     
     useEffect(() => {
         fetch('http://localhost:3000/reviews', {

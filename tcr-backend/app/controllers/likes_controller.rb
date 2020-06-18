@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
     def index
         likes = Like.all 
-        render json: likes
+        render json: likes, include: :user
     end
 
     def create

@@ -1,23 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import {useParams, useHistory} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import ReviewCard from './ReviewCard'
 
 export default function UserShow(props) {
 
     const params = useParams()
-    const history = useHistory()
 
-    let [user, setUser] = useState({
-        reviews: []
-    })
+    let [user, setUser] = useState({})
 
     let [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/users', {
-            credentials: 'include',
-            method: 'GET'
-        })
+        fetch('http://localhost:3000/users')
         .then(res => res.json())
         .then(users => {
             let currentUser = users.find(user => user.id === parseInt(params.id))
@@ -35,11 +29,15 @@ export default function UserShow(props) {
             let userReviews = reviews.filter(review => review.user.id === parseInt(params.id))
             setReviews(userReviews)
         })
-    },[])
+    }, [])
 
     return(
         <div>
-            <h1>{user.username}</h1>
+            <h1>{user.firstname} {user.lastname}</h1>
+            <label>Username:</label>
+            <h2>{user.username}</h2>
+            {/* <label>Password:</label>
+            <h2>{user.password_digest}</h2> */}
             <label>Age:</label>
             <h3>{user.age}</h3>
             <h1>Reviews:</h1>
