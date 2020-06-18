@@ -23,10 +23,4 @@ class ReviewsController < ApplicationController
         review = Review.find(params[:id])
         review.destroy
     end
-
-    private
-
-    def review_params
-        params.require(:review).permit(:doctor_id, :user_id, :description)
-    end
 end
