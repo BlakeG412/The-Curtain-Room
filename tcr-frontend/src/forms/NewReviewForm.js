@@ -72,8 +72,9 @@ export default function NewReviewForm(props) {
                 </div>
                 <div class="dropdown">
                     <span>Doctor:</span>
-                    <div class="dropdown-content">
-                        {doctors.map(doctor => <a onClick={() => setReview({ ...review, doctor_id: doctor.id})}>{doctor.lastname}, {doctor.firstname}</a>)}
+                    <div class="dropdown-content" value="dropdown-content">
+                        {doctors.map(doctor => 
+                            <a onClick={() => setReview({ ...review, doctor_id: doctor.id})}>{doctor.lastname}, {doctor.firstname}</a>)}
                     </div>
                 </div>
                 <div>
