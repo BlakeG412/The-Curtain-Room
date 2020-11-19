@@ -19,6 +19,8 @@ export default function NewDoctorForm(props) {
 
     let [practices, setPractices] = useState([])
 
+    // let [practice, setPractice] = useState([])
+
     useEffect(() => {
         fetch('http://localhost:3000/practices')
         .then(res => res.json())
@@ -54,6 +56,9 @@ export default function NewDoctorForm(props) {
             if(success){
                 history.push(`/doctor/${id}`)
             }
+            else {
+                history.push('/doctors/new')
+            }
         })
     }
 
@@ -75,13 +80,15 @@ export default function NewDoctorForm(props) {
                         <input class="inputStyle" type="text" value={doctor.state} placeholder="State" onChange={ e => setDoctor({ ...doctor, state: e.target.value })}></input>
                         <input class="inputStyle" type="text" value={doctor.zip_code} placeholder="Zip Code" onChange={ e => setDoctor({ ...doctor, zip_code: e.target.value })}></input>
                     </div>
-                <div class="dropdown">
+                {/* <label>Practices:</label>     */}
+                <textbox class="dropdown">
                     <span>Practice:</span>
                     <div class="dropdown-content">
-                    {practices.map(practice => <a onClick={() => setDoctor({ ...doctor, practice_id: practice.id})}>{practice.medicine}</a>)}
+                    {practices.map(practice => 
+                        <a onClick={() => setDoctor({ ...doctor, practice_id: practice.id})}>{practice.medicine}</a>)}
                         <div>{doctor.practice_id}</div>
                     </div>
-                </div>
+                </textbox>
                 <br/>
                 <input type="submit" />
             </form>
